@@ -2,6 +2,28 @@
 apiVersion: image.openshift.io/v1
 kind: ImageStream
 metadata:
+  annotations:
+    openshift.io/image.dockerRepositoryCheck: "2024-10-14T16:59:35Z"
+  name: kasm-ubuntu-jammy-desktop
+  namespace: kasm
+spec:
+  lookupPolicy:
+    local: false
+  tags:
+  - annotations: null
+    from:
+      kind: DockerImage
+      name: docker.io/kasmweb/ubuntu-jammy-desktop:1.16.0-rolling-weekly
+    generation: 1
+    importPolicy:
+      importMode: Legacy
+    name: 1.16.0-rolling-weekly
+    referencePolicy:
+      type: Source
+---
+apiVersion: image.openshift.io/v1
+kind: ImageStream
+metadata:
   name: kasm-desktop-mod-obsidian
   namespace: kasm
 spec:

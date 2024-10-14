@@ -1,4 +1,4 @@
-FROM docker.io/kasmweb/ubuntu-jammy-desktop:1.16.0-rolling-weekly
+FROM image-registry.openshift-image-registry.svc:5000/kasm/kasm-ubuntu-jammy-desktop:1.16.0-rolling-weekly
 
 USER root
 
