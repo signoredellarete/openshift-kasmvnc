@@ -1,0 +1,81 @@
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  labels:
+    kubernetes.io/metadata.name: kasm
+  name: kasm
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: allow-anyuid
+  namespace: kasm
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: system:openshift:scc:anyuid
+subjects:
+- kind: ServiceAccount
+  name: default
+  namespace: kasm
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: kasm-desktop
+  namespace: kasm
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: kasm-desktop
+  template:
+    metadata:
+      labels:
+        app: kasm-desktop
+    spec:
+      containers:
+      - env:
+        - name: VNC_PW                                                      # Loging with
+          value: password                                                   # kasm_user/password
+        image: docker.io/kasmweb/ubuntu-jammy-desktop:1.16.0-rolling-weekly # Kasmweb images list: https://hub.docker.com/u/kasmweb
+        imagePullPolicy: IfNotPresent
+        name: kasm-desktop
+        ports:
+        - containerPort: 6901
+          protocol: TCP
+        resources:
+          limits:
+            cpu: "2"
+            memory: 2Gi
+      # securityContext:                                                    # Uncomment to run
+      #   runAsUser: 0                                                      # as root
+      terminationGracePeriodSeconds: 3
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: kasm-desktop
+  namespace: kasm
+spec:
+  ports:
+  - port: 6901
+  selector:
+    app: kasm-desktop
+---
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata:
+  name: kasm-desktop
+  namespace: kasm
+spec:
+  port:
+    targetPort: 6901
+  tls:
+    insecureEdgeTerminationPolicy: Redirect
+    termination: passthrough
+  to:
+    kind: Service
+    name: kasm-desktop
+    weight: 100
