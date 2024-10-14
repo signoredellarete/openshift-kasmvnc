@@ -11,3 +11,5 @@ COPY obsidian.desktop /home/kasm-user/Desktop/obsidian.desktop
 RUN chmod +x /home/kasm-user/Desktop/obsidian.desktop && \
     chown -R kasm-user:root /home/kasm-user
 
+USER kasm-user
+
