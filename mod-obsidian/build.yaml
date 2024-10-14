@@ -1,0 +1,28 @@
+---
+kind: ImageStream
+metadata:
+  name: kasm-desktop-mod-obsidian
+  namespace: kasm
+spec:
+  lookupPolicy:
+    local: false
+---
+apiVersion: build.openshift.io/v1
+kind: BuildConfig
+metadata:
+  name: kasmvnc-desktop-mod-obsidian
+spec:
+  source:
+    type: Git
+    git:
+      uri: "https://github.com/signoredellarete/openshift-kasmvnc"
+    contextDir: "/mod-obsidian"
+  strategy:
+    type: Docker
+    dockerStrategy:
+      dockerfilePath: Dockerfile
+  output:
+    to:
+      kind: ImageStreamTag
+      name: kasm-desktop-mod-obsidian:latest
+
