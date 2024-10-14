@@ -7,16 +7,7 @@ RUN wget https://github.com/obsidianmd/obsidian-releases/releases/download/v1.6.
     dpkg -i obsidian_1.6.7_amd64.deb || apt-get install -f -y && \
     rm obsidian_1.6.7_amd64.deb && \
     mkdir -p /home/kasm-user/Desktop && \
-    echo '[Desktop Entry] \
-Name=Obsidian \
-Exec=/opt/Obsidian/obsidian %U \
-Terminal=false \
-Type=Application \
-Icon=obsidian \
-StartupWMClass=obsidian \
-Comment=Obsidian \
-MimeType=x-scheme-handler/obsidian; \
-Categories=Office;' > /home/kasm-user/Desktop/obsidian.desktop && \
+    printf '[Desktop Entry]\nName=Obsidian\nExec=/opt/Obsidian/obsidian %%U\nTerminal=false\nType=Application\nIcon=obsidian\nStartupWMClass=obsidian\nComment=Obsidian\nMimeType=x-scheme-handler/obsidian;\nCategories=Office;\n' > /home/kasm-user/Desktop/obsidian.desktop && \
     chmod +x /home/kasm-user/Desktop/obsidian.desktop && \
     chown -R kasm-user:kasm-user /home/kasm-user
 
