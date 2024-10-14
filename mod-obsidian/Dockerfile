@@ -6,6 +6,7 @@ USER root
 RUN wget https://github.com/obsidianmd/obsidian-releases/releases/download/v1.6.7/obsidian_1.6.7_amd64.deb && \
     dpkg -i obsidian_1.6.7_amd64.deb || apt-get install -f -y && \
     rm obsidian_1.6.7_amd64.deb && \
+    mkdir -p /home/kasm-user/Desktop && \
     echo '[Desktop Entry] \
 Name=Obsidian \
 Exec=/opt/Obsidian/obsidian %U \
@@ -16,5 +17,6 @@ StartupWMClass=obsidian \
 Comment=Obsidian \
 MimeType=x-scheme-handler/obsidian; \
 Categories=Office;' > /home/kasm-user/Desktop/obsidian.desktop && \
-    chmod +x /home/kasm-user/Desktop/obsidian.desktop
+    chmod +x /home/kasm-user/Desktop/obsidian.desktop && \
+    chown -R kasm-user:kasm-user /home/kasm-user
 
