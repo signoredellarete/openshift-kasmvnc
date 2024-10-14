@@ -54,15 +54,6 @@ spec:
       terminationGracePeriodSeconds: 3
   strategy:
     type: RollingUpdate
-  triggers:
-  - type: ImageChange
-    imageChangeParams:
-      automatic: true
-      containerNames:
-      - kasm-desktop-mod-obsidian
-      from:
-        kind: ImageStreamTag
-        name: kasm-desktop-mod-obsidian:latest
 ---
 apiVersion: v1
 kind: Service
