@@ -9,5 +9,5 @@ RUN wget https://github.com/obsidianmd/obsidian-releases/releases/download/v1.6.
     mkdir -p /home/kasm-user/Desktop
 COPY obsidian.desktop /home/kasm-user/Desktop/obsidian.desktop
 RUN chmod +x /home/kasm-user/Desktop/obsidian.desktop && \
-    chown -R kasm-user:kasm-user /home/kasm-user
+    chown -R kasm-user:root /home/kasm-user
 
