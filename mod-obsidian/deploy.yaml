@@ -52,6 +52,17 @@ spec:
       # securityContext:                                                    # Uncomment to run
       #   runAsUser: 0                                                      # as root
       terminationGracePeriodSeconds: 3
+  strategy:
+    type: Rolling
+  triggers:
+  - type: ImageChange
+    imageChangeParams:
+      automatic: true
+      containerNames:
+      - kasm-desktop-mod-obsidian
+      from:
+        kind: ImageStreamTag
+        name: kasm-desktop-mod-obsidian:latest
 ---
 apiVersion: v1
 kind: Service
