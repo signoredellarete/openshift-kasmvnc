@@ -23,6 +23,8 @@ subjects:
 apiVersion: apps/v1
 kind: Deployment
 metadata:
+  annotations:
+    image.openshift.io/triggers: '[{"from":{"kind":"ImageStreamTag","name":"kasm-desktop-mod-obsidian:latest"},"fieldPath":"spec.template.spec.containers[?(@.name==\"kasm-desktop-mod-obsidian\")].image"}]'
   name: kasm-desktop-mod-obsidian
   namespace: kasm
 spec:
