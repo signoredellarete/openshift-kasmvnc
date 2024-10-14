@@ -53,7 +53,7 @@ spec:
       #   runAsUser: 0                                                      # as root
       terminationGracePeriodSeconds: 3
   strategy:
-    type: Rolling
+    type: RollingUpdate
   triggers:
   - type: ImageChange
     imageChangeParams:
