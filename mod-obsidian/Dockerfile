@@ -8,7 +8,6 @@ RUN wget https://github.com/obsidianmd/obsidian-releases/releases/download/v1.6.
     rm obsidian_1.6.7_amd64.deb && \
     mkdir -p /home/kasm-user/Desktop
 COPY obsidian.desktop /home/kasm-user/Desktop/obsidian.desktop
-COPY test-file.txt /home/kasm-user/test-file.txt
 RUN chmod +x /home/kasm-user/Desktop/obsidian.desktop && \
     chown -R kasm-user:root /home/kasm-user
 
