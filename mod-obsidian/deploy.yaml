@@ -40,7 +40,7 @@ spec:
         - name: VNC_PW                                                      # Loging with
           value: password                                                   # kasm_user/password
         image: image-registry.openshift-image-registry.svc:5000/kasm/kasm-desktop-mod-obsidian:latest
-        imagePullPolicy: IfNotPresent
+        imagePullPolicy: Always
         name: kasm-desktop-mod-obsidian
         ports:
         - containerPort: 6901
