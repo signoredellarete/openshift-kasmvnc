@@ -22,7 +22,7 @@ RUN chmod +x /home/kasm-user/Desktop/obsidian.desktop && \
     chown -R kasm-user:kasm-user /home/kasm-user && \
     mkdir /tmp/config && \
     chown -R kasm-user:kasm-user /tmp/config && \
-    echo "/home/kasm-user/boot-script.sh" >> /usr/bin/execThunar.sh
+    echo "/home/kasm-user/boot-script.sh" >> /dockerstartup/custom_startup.sh
 
 USER kasm-user
 # CMD & /home/kasm-user/boot-script.sh
