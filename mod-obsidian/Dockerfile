@@ -13,10 +13,9 @@ COPY obsidian.desktop /home/kasm-user/Desktop/obsidian.desktop
 COPY xfce4-terminal-emulator.desktop /home/kasm-user/Desktop/xfce4-terminal-emulator.desktop
 
 # Create an empty Obsidian Vault
-RUN mkdir /home/kasm-user/obsidian-vault && \
-    mkdir /home/kasm-user/.config/obsidian && \
+RUN mkdir -p /home/kasm-user/obsidian-vault && \
+    mkdir -p /home/kasm-user/.config/obsidian && \
     echo '{"vaults":{"'$(openssl rand -hex 8)'":{"path":"/home/kasm-user/obsidian-vault","ts":'$(shuf -i 1000000000000-9999999999999 -n 1)',"open":true}}}' > .config/obsidian/obsidian.json
-
 
 RUN chmod +x /home/kasm-user/Desktop/obsidian.desktop && \
     chmod +x /home/kasm-user/Desktop/xfce4-terminal-emulator.desktop && \
