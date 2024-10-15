@@ -8,17 +8,23 @@ RUN wget https://github.com/obsidianmd/obsidian-releases/releases/download/v1.6.
     rm obsidian_1.6.7_amd64.deb && \
     mkdir -p /home/kasm-user/Desktop
 
-# Create Obsidian desktop laucher
+# Create Obsidian desktop lauchers
 COPY obsidian.desktop /home/kasm-user/Desktop/obsidian.desktop
 COPY xfce4-terminal-emulator.desktop /home/kasm-user/Desktop/xfce4-terminal-emulator.desktop
+
+# Create config-script.sh
+COPY config-script.sh /tmp/config-script.sh
 
 # Create an empty Obsidian Vault
 RUN mkdir -p /home/kasm-user/obsidian-vault && \
     mkdir -p /home/kasm-user/.config/obsidian && \
     echo '{"vaults":{"'$(openssl rand -hex 8)'":{"path":"/home/kasm-user/obsidian-vault","ts":'$(shuf -i 1000000000000-9999999999999 -n 1)',"open":true}}}' > .config/obsidian/obsidian.json
 
+# Adjust some file permission and ownership
 RUN chmod +x /home/kasm-user/Desktop/obsidian.desktop && \
     chmod +x /home/kasm-user/Desktop/xfce4-terminal-emulator.desktop && \
-    chown -R kasm-user:kasm-user /home/kasm-user
+    chmod +x /tmp/config-script.sh && \
+    chown -R kasm-user:kasm-user /home/kasm-user && \
+    chown kasm-user:kasm-user /tmp/config-script.sh && \
 
 USER kasm-user
