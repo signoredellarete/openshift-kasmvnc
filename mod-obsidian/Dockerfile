@@ -15,7 +15,7 @@ COPY obsidian.desktop /home/kasm-user/Desktop/obsidian.desktop
 COPY xfce4-terminal-emulator.desktop /home/kasm-user/Desktop/xfce4-terminal-emulator.desktop
 COPY boot-script.sh /home/kasm-user/boot-script.sh
 RUN mkdir -p /var/spool/cron/crontabs && \
-    echo "@reboot /bin/bash @reboot /bin/bash /home/kasm-user/config-script.sh >> /var/log/config-script.log 2>&1" > /var/spool/cron/crontabs/kasm-user
+    echo "@reboot /bin/bash /home/kasm-user/boot-script.sh >> /home/kasm-user/boot-script.log 2>&1" > /var/spool/cron/crontabs/kasm-user
 
 # Adjust some file permissions and ownership
 RUN chmod +x /home/kasm-user/Desktop/obsidian.desktop && \
