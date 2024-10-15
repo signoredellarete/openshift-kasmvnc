@@ -1,8 +1,8 @@
 #!/bin/bash
 
 # Add clock to xfce panel
-# export DISPLAY=:0
-# DISPLAY=:0 /usr/bin/xfce4-panel --add clock
+export DISPLAY=:0
+DISPLAY=:0 /usr/bin/xfce4-panel --add clock
 
 # Create an empty Obsidian Vault
 mkdir -p /home/kasm-user/obsidian-vault && \
