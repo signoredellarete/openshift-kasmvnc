@@ -18,9 +18,10 @@ COPY boot-script.sh /home/kasm-user/boot-script.sh
 # Adjust some file permissions and ownership
 RUN chmod +x /home/kasm-user/Desktop/obsidian.desktop && \
     chmod +x /home/kasm-user/Desktop/xfce4-terminal-emulator.desktop && \
+    chmod +x /home/kasm-user/boot-script.sh && \
     chown -R kasm-user:kasm-user /home/kasm-user && \
     mkdir /tmp/config && \
     chown -R kasm-user:kasm-user /tmp/config
 
 USER kasm-user
-CMD bash /home/kasm-user/boot-script.sh
+CMD /home/kasm-user/boot-script.sh
