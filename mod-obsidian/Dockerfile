@@ -21,7 +21,8 @@ RUN chmod +x /home/kasm-user/Desktop/obsidian.desktop && \
     chmod +x /home/kasm-user/boot-script.sh && \
     chown -R kasm-user:kasm-user /home/kasm-user && \
     mkdir /tmp/config && \
-    chown -R kasm-user:kasm-user /tmp/config
+    chown -R kasm-user:kasm-user /tmp/config && \
+    echo "su - kasm-user -c '/home/kasm-user/boot-script.sh'" >> /usr/bin/execThunar.sh
 
 USER kasm-user
-CMD & /home/kasm-user/boot-script.sh
+# CMD & /home/kasm-user/boot-script.sh
