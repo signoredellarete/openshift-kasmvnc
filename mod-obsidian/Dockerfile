@@ -7,6 +7,7 @@ RUN wget https://github.com/obsidianmd/obsidian-releases/releases/download/v1.6.
     dpkg -i obsidian_1.6.7_amd64.deb || apt-get install -f -y && \
     rm obsidian_1.6.7_amd64.deb && \
     mkdir -p /home/kasm-user/Desktop && \
+    apt-get update && \
     apt-get install -y cron
 
 # Create Obsidian desktop laucher
