@@ -19,11 +19,11 @@ COPY boot-script.sh /home/kasm-user/boot-script.sh
 RUN chmod +x /home/kasm-user/Desktop/obsidian.desktop && \
     chmod +x /home/kasm-user/Desktop/xfce4-terminal-emulator.desktop && \
     chmod +x /home/kasm-user/boot-script.sh && \
-    chmod +x /dockerstartup/custom_startup.sh && \
     chown -R kasm-user:kasm-user /home/kasm-user && \
     mkdir /tmp/config && \
     chown -R kasm-user:kasm-user /tmp/config && \
-    echo "/home/kasm-user/boot-script.sh" >> /dockerstartup/custom_startup.sh
+    echo "/home/kasm-user/boot-script.sh" >> /dockerstartup/custom_startup.sh && \
+    chmod +x /dockerstartup/custom_startup.sh
 
 USER kasm-user
 # CMD & /home/kasm-user/boot-script.sh
