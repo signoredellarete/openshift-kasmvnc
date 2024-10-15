@@ -12,9 +12,6 @@ RUN wget https://github.com/obsidianmd/obsidian-releases/releases/download/v1.6.
 COPY obsidian.desktop /home/kasm-user/Desktop/obsidian.desktop
 COPY xfce4-terminal-emulator.desktop /home/kasm-user/Desktop/xfce4-terminal-emulator.desktop
 
-# Create config-script.sh
-COPY config-script.sh /tmp/config-script.sh
-
 # Create an empty Obsidian Vault
 RUN mkdir -p /home/kasm-user/obsidian-vault && \
     mkdir -p /home/kasm-user/.config/obsidian && \
