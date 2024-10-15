@@ -55,6 +55,7 @@ spec:
         args:
           - |
             # Clona il repository e lancia lo script
+            rm -rf /tmp/config && \
             git clone https://github.com/signoredellarete/openshift-kasmvnc.git /tmp/config && \
             /bin/bash /tmp/config/mod-obsidian/config-script.sh
       # securityContext:                                                    # Uncomment to run
