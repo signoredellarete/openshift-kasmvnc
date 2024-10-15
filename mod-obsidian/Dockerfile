@@ -22,5 +22,3 @@ RUN chmod +x /home/kasm-user/Desktop/obsidian.desktop && \
     chown -R kasm-user:kasm-user /home/kasm-user
 
 USER kasm-user
-
-RUN xfce4-panel --add clock
