@@ -51,14 +51,6 @@ spec:
           limits:
             cpu: "2"
             memory: 2Gi
-        command: ["/bin/bash", "-c"]
-        args:
-          - |
-            # Clona il repository e lancia lo script
-            rm -rf /tmp/config && \
-            git clone https://github.com/signoredellarete/openshift-kasmvnc.git /tmp/config && \
-            /bin/bash /tmp/config/mod-obsidian/config-script.sh && \
-            tail -f /dev/null
       # securityContext:                                                    # Uncomment to run
       #   runAsUser: 0                                                      # as root
       terminationGracePeriodSeconds: 3
