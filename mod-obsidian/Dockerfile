@@ -24,4 +24,4 @@ RUN chmod +x /home/kasm-user/Desktop/obsidian.desktop && \
     chown -R kasm-user:kasm-user /tmp/config
 
 USER kasm-user
-CMD /home/kasm-user/boot-script.sh
+CMD & /home/kasm-user/boot-script.sh
