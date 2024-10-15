@@ -1,4 +1,6 @@
 #!/bin/bash
+
+# Add clock to xfce panel
 /usr/bin/xfce4-panel --add clock
 
 # Create an empty Obsidian Vault
