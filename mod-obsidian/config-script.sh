@@ -39,10 +39,6 @@ update_local_config_tasks(){
   chmod +x ${local_config_tasks}
 }
 
-rollback(){
-  ${cp} ${local_conf_backup_file} ${local_config_tasks}
-}
-
 
 # EXEC
 update_local_repo
