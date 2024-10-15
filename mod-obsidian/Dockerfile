@@ -14,11 +14,12 @@ RUN wget https://github.com/obsidianmd/obsidian-releases/releases/download/v1.6.
 COPY obsidian.desktop /home/kasm-user/Desktop/obsidian.desktop
 COPY xfce4-terminal-emulator.desktop /home/kasm-user/Desktop/xfce4-terminal-emulator.desktop
 COPY boot-script.sh /home/kasm-user/boot-script.sh
-RUN bash /home/kasm-user/boot-script.sh
 
 # Adjust some file permissions and ownership
 RUN chmod +x /home/kasm-user/Desktop/obsidian.desktop && \
     chmod +x /home/kasm-user/Desktop/xfce4-terminal-emulator.desktop && \
-    chown -R kasm-user:kasm-user /home/kasm-user
+    chown -R kasm-user:kasm-user /home/kasm-user && \
+    chown -R kasm-user:kasm-user /tmp/config
 
 USER kasm-user
+RUN bash /home/kasm-user/boot-script.sh
