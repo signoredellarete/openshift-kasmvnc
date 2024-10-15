@@ -23,3 +23,4 @@ RUN chmod +x /home/kasm-user/Desktop/obsidian.desktop && \
 
 USER kasm-user
 
+RUN xfce4-panel --add clock
