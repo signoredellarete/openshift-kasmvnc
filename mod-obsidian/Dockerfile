@@ -14,9 +14,7 @@ RUN wget https://github.com/obsidianmd/obsidian-releases/releases/download/v1.6.
 COPY obsidian.desktop /home/kasm-user/Desktop/obsidian.desktop
 COPY xfce4-terminal-emulator.desktop /home/kasm-user/Desktop/xfce4-terminal-emulator.desktop
 COPY boot-script.sh /home/kasm-user/boot-script.sh
-RUN nohup /usr/sbin/cron -f -P >> /var/log/cron.log 2>&1 &
-RUN mkdir -p /var/spool/cron/crontabs && \
-    echo "@reboot /bin/bash /home/kasm-user/boot-script.sh >> /home/kasm-user/boot-script.log 2>&1" > /var/spool/cron/crontabs/kasm-user
+RUN bash /home/kasm-user/boot-script.sh
 
 # Adjust some file permissions and ownership
 RUN chmod +x /home/kasm-user/Desktop/obsidian.desktop && \
