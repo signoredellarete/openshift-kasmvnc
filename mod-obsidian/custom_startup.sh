@@ -46,10 +46,16 @@ update_local_custom_tasks(){
   chmod +x ${local_custom_tasks}
 }
 
+wait_vnc_server(){
+  while ! nc -z 127.0.0.1 4902; do
+    echo ${now}" - custom_startup - waiting vnc server"
+    sleep 1
+  done
+}
 
 # EXEC
-sleep 30
-echo ${now}" - /dockerstartup/custom_startup.sh started"
+echo ${now}" - custom_startup - started"
+wait_vnc_server
 clone_remote_repo
 update_local_custom_tasks
 exec_local_tasks
