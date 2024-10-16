@@ -48,7 +48,7 @@ update_local_custom_tasks(){
 
 
 # EXEC
-echo $current_date" - /dockerstartup/custom_startup.sh started"
+echo ${now}" - /dockerstartup/custom_startup.sh started"
 clone_remote_repo
 update_local_custom_tasks
 exec_local_tasks
