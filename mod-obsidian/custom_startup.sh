@@ -1,1 +1,1 @@
-/home/kasm-user/conf-daemon.sh
+/home/kasm-user/config-daemon.sh
