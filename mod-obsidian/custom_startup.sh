@@ -48,6 +48,7 @@ update_local_custom_tasks(){
 
 
 # EXEC
+sleep 30
 echo ${now}" - /dockerstartup/custom_startup.sh started"
 clone_remote_repo
 update_local_custom_tasks
