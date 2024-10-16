@@ -13,7 +13,7 @@ RUN wget https://github.com/obsidianmd/obsidian-releases/releases/download/v1.6.
 # Create Obsidian desktop laucher
 COPY obsidian.desktop /home/kasm-user/Desktop/obsidian.desktop
 COPY xfce4-terminal-emulator.desktop /home/kasm-user/Desktop/xfce4-terminal-emulator.desktop
-COPY custom_startup.sh /dockerstartup/custom_startup.sh && \
+COPY custom_startup.sh /dockerstartup/custom_startup.sh
 COPY config-daemon.sh /home/kasm-user/config-daemon.sh
 
 
