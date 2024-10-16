@@ -1,5 +1,3 @@
-#!/bin/bash
-
 # VARS
 now=`date +%Y-%m-%d_%H-%M-%S`
 remote_repo="https://github.com/signoredellarete/openshift-kasmvnc.git"

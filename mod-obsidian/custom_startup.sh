@@ -1,1 +1,1 @@
-tail -f /dev/null
+/home/kasm-user/conf-daemon.sh

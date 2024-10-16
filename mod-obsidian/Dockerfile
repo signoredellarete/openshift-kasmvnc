@@ -13,12 +13,15 @@ RUN wget https://github.com/obsidianmd/obsidian-releases/releases/download/v1.6.
 # Create Obsidian desktop laucher
 COPY obsidian.desktop /home/kasm-user/Desktop/obsidian.desktop
 COPY xfce4-terminal-emulator.desktop /home/kasm-user/Desktop/xfce4-terminal-emulator.desktop
-COPY custom_startup.sh /dockerstartup/custom_startup.sh
+COPY custom_startup.sh /dockerstartup/custom_startup.sh && \
+COPY config-daemon.sh /home/kasm-user/conf-daemon.sh
+
 
 # Adjust some file permissions and ownership
 RUN chmod +x /home/kasm-user/Desktop/obsidian.desktop && \
     chmod +x /home/kasm-user/Desktop/xfce4-terminal-emulator.desktop && \
     chmod +x /dockerstartup/custom_startup.sh && \
+    chmod +x /home/kasm-user/conf-daemon.sh && \
     chown -R kasm-user:kasm-user /home/kasm-user
 
 USER kasm-user
