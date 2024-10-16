@@ -17,7 +17,7 @@ cp='/usr/bin/cp'
 # FUNCTIONS
 clone_remote_repo(){
   if [ ! -d ${git_dir} ];then
-    #${git} clone ${remote_repo} ${git_dir}
+    ${git} clone ${remote_repo} ${git_dir}
   fi
 }
 
