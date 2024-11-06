@@ -65,7 +65,7 @@ while
 do
   update_local_repo
   if [ $(is_different) -eq 1 ];then
-    echo ${now} "Remote file is different! Local customuration will be updated."
+    echo ${now} "Remote file is different! Local custom configuration will be updated."
     backup_custom_tasks
     update_local_custom_tasks
     exec_local_tasks
